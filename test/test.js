@@ -17,7 +17,7 @@ describe("pow", function () {
     });
   }
 
-  for (let x = 1; x <= 5; x++) {
+  for (let x = 1; x <= 7; x++) {
     makeTest(x);
   }
 });
