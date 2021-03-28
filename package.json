@@ -1,0 +1,25 @@
+{
+  "name": "emailsand",
+  "version": "1.0.0",
+  "description": "project for JS",
+  "main": "index.js",
+  "scripts": {
+    "test": "mocha ./test/test.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/pavelSitnitsa/emailsend.git"
+  },
+  "author": "pavel Sitnitsa",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/pavelSitnitsa/emailsend/issues"
+  },
+  "homepage": "https://github.com/pavelSitnitsa/emailsend#readme",
+  "dependencies": {
+    "chai": "^4.3.4"
+  },
+  "devDependencies": {
+    "mocha": "^7.2.0"
+  }
+}
