@@ -1,2 +1,3 @@
 console.log("jdskfsfsjhfj");
-console.log("hellow world");
+console.log("hello world");
+console.log("hi Pasha")
