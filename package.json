@@ -4,7 +4,7 @@
   "description": "project for JS",
   "main": "index.js",
   "scripts": {
-    "test": "mocha ./test/test.js"
+    "api-test": "mocha ./test/test.js"
   },
   "repository": {
     "type": "git",
@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/pavelSitnitsa/emailsend#readme",
   "dependencies": {
+    "axios": "^0.21.1",
     "chai": "^4.3.4"
   },
   "devDependencies": {

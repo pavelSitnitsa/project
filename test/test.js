@@ -1,26 +1,28 @@
-const chai = require('chai'); 
-function pow(x, n) {
-  let result = 1;
+const chai = require("chai");
+const axios = require("axios");
+describe("testing HTTP request", function () {
+  it(`get testing`, function () {
+    // Make a request for a user with a given ID
+    axios
+      .get("https://reqres.in/api/users/2")
 
-  for (let i = 0; i < n; i++) {
-    result *= x;
-  }
+      .then(function (response) {
+        chai
+        .expect(200)
+        .equals(response.status)
+        let firstName = response.data.data.first_name;
+        chai
+        .expect("Janet")
+        .equals(firstName)
+        let lastName = response.data.data.last_name;
+        chai
+        .expect("Weaver")
+        .equals(lastName)
 
-  return result;
-}
-describe("pow", function () {
-  function makeTest(x) {
-    let expected = x * x * x;
-    console.log('expected :>> ', expected);
-    it(`${x} в степени 3 будет ${expected}`, function() {
-      chai.expect(pow(x, 3)).equal(expected);
-    });
-  }
-
-  for (let x = 1; x <= 7; x++) {
-    makeTest(x);
-  }
+      })
+      .catch(function (error) {
+        // handle error
+        console.log(error);
+      });
+  });
 });
-
-
-
