@@ -1,30 +1,42 @@
-const chai = require("chai");
+const { expect } = require("chai");
 const axios = require("axios");
+
+const testObject = {
+  name: "Alex",
+  age: 32,
+};
+
+const POST_URL = "https://jsonplaceholder.typicode.com/posts";
+const GET_URL = "https://reqres.in/api/users/2";
+const TEST_FIRST_NAME = "Janet";
+const TEST_LAST_NAME = "Weaver";
+
 describe("testing HTTP request", function () {
-  it("post resting", function () {
+  it("post testing", function () {
     axios
-      .post("https://jsonplaceholder.typicode.com/posts")
+      .post(POST_URL, testObject)
       .then(function (response) {
-        
-        chai.expect(101).equals(response.data.id);
-        chai.expect(201).equals(response.status)
+        expect(201).equals(response.status);
+        const expected = { ...testObject, id: 101 };
+        const actual = response.data;
+        expect(expected).deep.equals(actual);
+      })
+      .catch(function (error) {
+        console.log(error);
       });
   });
 
   it(`get testing`, function () {
-    // Make a request for a user with a given ID
     axios
-      .get("https://reqres.in/api/users/2")
-
+      .get(GET_URL)
       .then(function (response) {
-        chai.expect(200).equals(response.status);
+        expect(200).equals(response.status);
         let firstName = response.data.data.first_name;
-        chai.expect("Janet").equals(firstName);
+        expect(TEST_FIRST_NAME).equals(firstName);
         let lastName = response.data.data.last_name;
-        chai.expect("Weaver").equals(lastName);
+        expect(TEST_LAST_NAME).equals(lastName);
       })
       .catch(function (error) {
-        // handle error
         console.log(error);
       });
   });
