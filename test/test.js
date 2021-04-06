@@ -13,27 +13,29 @@ const TEST_LAST_NAME = "Weaver";
 
 describe("testing HTTP request", async function () {
   it("post testing", async function () {
+    let response;
     try {
-      let response = await axios.post(POST_URL, testObject);
-      expect(201).equals(response.status);
-      const expected = { ...testObject, id: 101 };
-      const actual = response.data;
-      expect(expected).deep.equals(actual);
+     response = await axios.post(POST_URL, testObject);
     } catch (error) {
       console.log(error);
     }
+    expect(201).equals(response.status);
+    const expected = { ...testObject, id: 101 };
+    const actual = response.data;
+    expect(expected).deep.equals(actual);
   });
 
   it(`get testing`, async function () {
+    let response;
     try {
-      let response = await axios.get(GET_URL);
-      expect(200).equals(response.status);
-      let firstName = response.data.data.first_name;
-      expect(TEST_FIRST_NAME).equals(firstName);
-      let lastName = response.data.data.last_name;
-      expect(TEST_LAST_NAME).equals(lastName);
+      response = await axios.get(GET_URL);
     } catch (error) {
       console.log(error);
     }
+    expect(200).equals(response.status);
+    let firstName = response.data.data.first_name;
+    expect(TEST_FIRST_NAME).equals(firstName);
+    let lastName = response.data.data.last_name;
+    expect(TEST_LAST_NAME).equals(lastName);
   });
 });
