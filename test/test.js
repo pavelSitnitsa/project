@@ -1,5 +1,6 @@
 const { expect } = require("chai");
 const axios = require("axios");
+const { requestManagement } = require("../services/requestService");
 
 const testObject = {
   name: "Alex",
@@ -14,11 +15,7 @@ const TEST_LAST_NAME = "Weaver";
 describe("testing HTTP request", async function () {
   it("post testing", async function () {
     let response;
-    try {
-     response = await axios.post(POST_URL, testObject);
-    } catch (error) {
-      console.log(error);
-    }
+    response = await requestManagement.requestPost(POST_URL, testObject);
     expect(201).equals(response.status);
     const expected = { ...testObject, id: 101 };
     const actual = response.data;
