@@ -24,11 +24,7 @@ describe("testing HTTP request", async function () {
 
   it(`get testing`, async function () {
     let response;
-    try {
-      response = await axios.get(GET_URL);
-    } catch (error) {
-      console.log(error);
-    }
+   response = await requestManagement.requestGet(GET_URL, testObject);
     expect(200).equals(response.status);
     let firstName = response.data.data.first_name;
     expect(TEST_FIRST_NAME).equals(firstName);

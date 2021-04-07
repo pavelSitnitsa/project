@@ -10,6 +10,15 @@ class RequestManagement {
     }
     return response;
   }
+  async requestGet(url, body) {
+    let response;
+    try {
+      response = await axios.get(url, body);
+    } catch (error) {
+      throw error;
+    }
+    return response;
+  }
 }
 
 const requestManagement = new RequestManagement();
